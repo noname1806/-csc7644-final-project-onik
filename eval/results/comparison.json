@@ -1,0 +1,14 @@
+{
+  "heuristic": {
+    "accuracy": 0.706,
+    "macro_f1": 0.495
+  },
+  "claude": {
+    "accuracy": 1.0,
+    "macro_f1": 1.0
+  },
+  "delta": {
+    "accuracy": 0.294,
+    "macro_f1": 0.505
+  }
+}

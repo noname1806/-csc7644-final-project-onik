@@ -1,0 +1,70 @@
+========================================================================
+BACKEND COMPARISON — Heuristic baseline vs Claude Sonnet 4.5
+========================================================================
+Apps:            10
+Verdicts/app:    5.1 avg
+Total verdicts:  51
+
+                    Heuristic    Claude
+  Overall accuracy    0.706      1.000
+  Macro-F1            0.495      1.000
+
+Per-class F1:
+  class       Heuristic     Claude    delta
+  covered         0.745      1.000   +0.255
+  unclear         0.000      1.000   +1.000
+  mismatch        0.739      1.000   +0.261
+
+Per-category accuracy:
+  category      Heuristic     Claude
+  weather           0.556      1.000
+  social            0.846      1.000
+  games             0.727      1.000
+  utilities         0.700      1.000
+  kids              0.625      1.000
+
+Per-app accuracy gap (Claude - Heuristic):
+  com.example.weather_a       0.60 ->  1.00   gap=+0.40
+  com.example.weather_b       0.50 ->  1.00   gap=+0.50
+  com.example.social_a        0.71 ->  1.00   gap=+0.29
+  com.example.social_b        1.00 ->  1.00   gap=+0.00
+  com.example.game_a          0.67 ->  1.00   gap=+0.33
+  com.example.game_b          0.80 ->  1.00   gap=+0.20
+  com.example.utility_a       0.80 ->  1.00   gap=+0.20
+  com.example.utility_b       0.60 ->  1.00   gap=+0.40
+  com.example.kids_a          0.75 ->  1.00   gap=+0.25
+  com.example.kids_b          0.50 ->  1.00   gap=+0.50
+
+Specific disagreements (heuristic wrong, Claude right):
+  com.example.weather_a :: android.permission.ACCESS_FINE_LOCATION
+    truth=unclear  heuristic=covered  claude=unclear
+  com.example.weather_a :: android.permission.INTERNET
+    truth=covered  heuristic=mismatch  claude=covered
+  com.example.weather_b :: android.permission.ACCESS_BACKGROUND_LOCATION
+    truth=mismatch  heuristic=covered  claude=mismatch
+  com.example.weather_b :: android.permission.INTERNET
+    truth=covered  heuristic=mismatch  claude=covered
+  com.example.social_a :: android.permission.READ_CONTACTS
+    truth=covered  heuristic=mismatch  claude=covered
+  com.example.social_a :: android.permission.READ_CALENDAR
+    truth=mismatch  heuristic=covered  claude=mismatch
+  com.example.game_a :: android.permission.INTERNET
+    truth=unclear  heuristic=mismatch  claude=unclear
+  com.example.game_a :: android.permission.ACCESS_NETWORK_STATE
+    truth=unclear  heuristic=mismatch  claude=unclear
+  com.example.game_b :: android.permission.INTERNET
+    truth=covered  heuristic=mismatch  claude=covered
+  com.example.utility_a :: android.permission.FLASHLIGHT
+    truth=covered  heuristic=mismatch  claude=covered
+  com.example.utility_b :: android.permission.READ_MEDIA_IMAGES
+    truth=covered  heuristic=mismatch  claude=covered
+  com.example.utility_b :: android.permission.INTERNET
+    truth=unclear  heuristic=covered  claude=unclear
+  com.example.kids_a :: android.permission.INTERNET
+    truth=mismatch  heuristic=covered  claude=mismatch
+  com.example.kids_b :: android.permission.READ_MEDIA_AUDIO
+    truth=unclear  heuristic=covered  claude=unclear
+  com.example.kids_b :: android.permission.ACCESS_FINE_LOCATION
+    truth=mismatch  heuristic=covered  claude=mismatch
+
+Wrote C:\Phd\SPRING 2026\project\permission-policy-checker\eval\results\comparison.json

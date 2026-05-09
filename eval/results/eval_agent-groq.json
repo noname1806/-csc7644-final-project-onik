@@ -1,0 +1,481 @@
+{
+  "backend": "agent-groq",
+  "n_apps": 10,
+  "n_instances": 51,
+  "overall_accuracy": 0.431,
+  "macro_f1": 0.243,
+  "per_class": {
+    "covered": {
+      "precision": 1.0,
+      "recall": 0.08,
+      "f1": 0.148,
+      "tp": 2,
+      "fp": 0,
+      "fn": 23
+    },
+    "unclear": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 1,
+      "fn": 5
+    },
+    "mismatch": {
+      "precision": 0.417,
+      "recall": 0.952,
+      "f1": 0.58,
+      "tp": 20,
+      "fp": 28,
+      "fn": 1
+    }
+  },
+  "per_category": {
+    "weather": {
+      "n_instances": 9,
+      "accuracy": 0.556
+    },
+    "social": {
+      "n_instances": 13,
+      "accuracy": 0.308
+    },
+    "games": {
+      "n_instances": 11,
+      "accuracy": 0.364
+    },
+    "utilities": {
+      "n_instances": 10,
+      "accuracy": 0.4
+    },
+    "kids": {
+      "n_instances": 8,
+      "accuracy": 0.625
+    }
+  },
+  "confusion_matrix": {
+    "covered": {
+      "covered": 2,
+      "unclear": 0,
+      "mismatch": 23
+    },
+    "unclear": {
+      "covered": 0,
+      "unclear": 0,
+      "mismatch": 5
+    },
+    "mismatch": {
+      "covered": 0,
+      "unclear": 1,
+      "mismatch": 20
+    }
+  },
+  "edge_cases": [],
+  "per_app": [
+    {
+      "app_id": "com.example.weather_a",
+      "category": "weather",
+      "title": "QuickWeather",
+      "policy_chars": 299,
+      "n_permissions": 5,
+      "accuracy": 0.6,
+      "per_permission": [
+        {
+          "permission": "android.permission.ACCESS_COARSE_LOCATION",
+          "true": "covered",
+          "pred": "covered",
+          "match": true
+        },
+        {
+          "permission": "android.permission.ACCESS_FINE_LOCATION",
+          "true": "unclear",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.INTERNET",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.ACCESS_WIFI_STATE",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        },
+        {
+          "permission": "android.permission.READ_CONTACTS",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        }
+      ]
+    },
+    {
+      "app_id": "com.example.weather_b",
+      "category": "weather",
+      "title": "StormRadar",
+      "policy_chars": 258,
+      "n_permissions": 4,
+      "accuracy": 0.5,
+      "per_permission": [
+        {
+          "permission": "android.permission.ACCESS_FINE_LOCATION",
+          "true": "covered",
+          "pred": "covered",
+          "match": true
+        },
+        {
+          "permission": "android.permission.ACCESS_BACKGROUND_LOCATION",
+          "true": "mismatch",
+          "pred": "unclear",
+          "match": false
+        },
+        {
+          "permission": "android.permission.POST_NOTIFICATIONS",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        },
+        {
+          "permission": "android.permission.INTERNET",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        }
+      ]
+    },
+    {
+      "app_id": "com.example.social_a",
+      "category": "social",
+      "title": "ChatNet",
+      "policy_chars": 338,
+      "n_permissions": 7,
+      "accuracy": 0.143,
+      "per_permission": [
+        {
+          "permission": "android.permission.READ_CONTACTS",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.CAMERA",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.RECORD_AUDIO",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.READ_PHONE_STATE",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.ACCESS_FINE_LOCATION",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.READ_CALENDAR",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        },
+        {
+          "permission": "android.permission.READ_MEDIA_IMAGES",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        }
+      ]
+    },
+    {
+      "app_id": "com.example.social_b",
+      "category": "social",
+      "title": "FriendFeed",
+      "policy_chars": 300,
+      "n_permissions": 6,
+      "accuracy": 0.5,
+      "per_permission": [
+        {
+          "permission": "android.permission.CAMERA",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.READ_MEDIA_IMAGES",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.READ_MEDIA_VIDEO",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.RECORD_AUDIO",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        },
+        {
+          "permission": "android.permission.READ_CONTACTS",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        },
+        {
+          "permission": "android.permission.ACCESS_COARSE_LOCATION",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        }
+      ]
+    },
+    {
+      "app_id": "com.example.game_a",
+      "category": "games",
+      "title": "PixelQuest",
+      "policy_chars": 258,
+      "n_permissions": 6,
+      "accuracy": 0.333,
+      "per_permission": [
+        {
+          "permission": "android.permission.INTERNET",
+          "true": "unclear",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.ACCESS_NETWORK_STATE",
+          "true": "unclear",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.WAKE_LOCK",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        },
+        {
+          "permission": "com.google.android.gms.permission.AD_ID",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.WRITE_EXTERNAL_STORAGE",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.RECORD_AUDIO",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        }
+      ]
+    },
+    {
+      "app_id": "com.example.game_b",
+      "category": "games",
+      "title": "ArenaWar",
+      "policy_chars": 275,
+      "n_permissions": 5,
+      "accuracy": 0.4,
+      "per_permission": [
+        {
+          "permission": "android.permission.RECORD_AUDIO",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.INTERNET",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.READ_PHONE_STATE",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.CAMERA",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        },
+        {
+          "permission": "android.permission.READ_CONTACTS",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        }
+      ]
+    },
+    {
+      "app_id": "com.example.utility_a",
+      "category": "utilities",
+      "title": "FlashlightPro",
+      "policy_chars": 242,
+      "n_permissions": 5,
+      "accuracy": 0.6,
+      "per_permission": [
+        {
+          "permission": "android.permission.CAMERA",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.FLASHLIGHT",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.ACCESS_FINE_LOCATION",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        },
+        {
+          "permission": "android.permission.READ_CONTACTS",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        },
+        {
+          "permission": "android.permission.INTERNET",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        }
+      ]
+    },
+    {
+      "app_id": "com.example.utility_b",
+      "category": "utilities",
+      "title": "FileMaster",
+      "policy_chars": 229,
+      "n_permissions": 5,
+      "accuracy": 0.2,
+      "per_permission": [
+        {
+          "permission": "android.permission.READ_EXTERNAL_STORAGE",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.WRITE_EXTERNAL_STORAGE",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.READ_MEDIA_IMAGES",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.INTERNET",
+          "true": "unclear",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.READ_PHONE_STATE",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        }
+      ]
+    },
+    {
+      "app_id": "com.example.kids_a",
+      "category": "kids",
+      "title": "ABC Learn",
+      "policy_chars": 229,
+      "n_permissions": 4,
+      "accuracy": 1.0,
+      "per_permission": [
+        {
+          "permission": "android.permission.INTERNET",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        },
+        {
+          "permission": "android.permission.WRITE_EXTERNAL_STORAGE",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        },
+        {
+          "permission": "android.permission.RECORD_AUDIO",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        },
+        {
+          "permission": "android.permission.CAMERA",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        }
+      ]
+    },
+    {
+      "app_id": "com.example.kids_b",
+      "category": "kids",
+      "title": "TinyTales",
+      "policy_chars": 284,
+      "n_permissions": 4,
+      "accuracy": 0.25,
+      "per_permission": [
+        {
+          "permission": "android.permission.RECORD_AUDIO",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.WRITE_EXTERNAL_STORAGE",
+          "true": "covered",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.READ_MEDIA_AUDIO",
+          "true": "unclear",
+          "pred": "mismatch",
+          "match": false
+        },
+        {
+          "permission": "android.permission.ACCESS_FINE_LOCATION",
+          "true": "mismatch",
+          "pred": "mismatch",
+          "match": true
+        }
+      ]
+    }
+  ]
+}

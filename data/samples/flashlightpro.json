@@ -1,0 +1,15 @@
+{
+  "app_id": "com.example.utility_a",
+  "title": "FlashlightPro",
+  "developer": "ExampleDev",
+  "content_rating": "Everyone",
+  "permissions": [
+    "android.permission.CAMERA",
+    "android.permission.FLASHLIGHT",
+    "android.permission.ACCESS_FINE_LOCATION",
+    "android.permission.READ_CONTACTS",
+    "android.permission.INTERNET"
+  ],
+  "privacy_policy_url": "https://example.com/flashlightpro/privacy",
+  "description": "Simple flashlight app."
+}

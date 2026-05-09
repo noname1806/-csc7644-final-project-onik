@@ -1,0 +1,415 @@
+{
+  "_meta": {
+    "model": "claude-sonnet-4-5",
+    "generated": "2026-04-24",
+    "method": "Audit performed by Claude with full system prompt (see src/prompts.py). Quotes are verbatim substrings of the policy_text in eval/ground_truth.json.",
+    "prompt_version": "v1"
+  },
+  "com.example.weather_a": {
+    "permissions": [
+      {
+        "permission": "android.permission.ACCESS_COARSE_LOCATION",
+        "data_access": "approximate (network-based) location",
+        "policy_mention": "We collect your approximate location to provide local weather forecasts",
+        "verdict": "covered",
+        "reasoning": "Policy explicitly states it collects approximate location for weather forecasts."
+      },
+      {
+        "permission": "android.permission.ACCESS_FINE_LOCATION",
+        "data_access": "precise GPS location",
+        "policy_mention": "We collect your approximate location to provide local weather forecasts",
+        "verdict": "unclear",
+        "reasoning": "Policy mentions only approximate location; precise GPS collection is not separately disclosed."
+      },
+      {
+        "permission": "android.permission.INTERNET",
+        "data_access": "network communication",
+        "policy_mention": "We share aggregated, non-identifying analytics with Google",
+        "verdict": "covered",
+        "reasoning": "Policy describes data sharing with Google Analytics, which implies network transmission."
+      },
+      {
+        "permission": "android.permission.ACCESS_WIFI_STATE",
+        "data_access": "Wi-Fi network info",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy does not disclose collection of Wi-Fi network information."
+      },
+      {
+        "permission": "android.permission.READ_CONTACTS",
+        "data_access": "the user's contact list",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy makes no mention of accessing the user's contact list."
+      }
+    ],
+    "summary": "QuickWeather discloses approximate location and analytics sharing, but does not address Wi-Fi state or contacts access — both of which the app requests. Fine location is only disclosed at the coarse level."
+  },
+  "com.example.weather_b": {
+    "permissions": [
+      {
+        "permission": "android.permission.ACCESS_FINE_LOCATION",
+        "data_access": "precise GPS location",
+        "policy_mention": "StormRadar collects your precise GPS location to deliver hyperlocal alerts",
+        "verdict": "covered",
+        "reasoning": "Policy explicitly states precise GPS location collection."
+      },
+      {
+        "permission": "android.permission.ACCESS_BACKGROUND_LOCATION",
+        "data_access": "location in the background, even when app not in use",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy does not disclose background location collection separately from foreground use."
+      },
+      {
+        "permission": "android.permission.POST_NOTIFICATIONS",
+        "data_access": "show notifications",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy does not mention notifications or alerting practices."
+      },
+      {
+        "permission": "android.permission.INTERNET",
+        "data_access": "network communication",
+        "policy_mention": "We share location data with our advertising partners for ad targeting",
+        "verdict": "covered",
+        "reasoning": "Policy describes sharing with advertising partners, which requires network access."
+      }
+    ],
+    "summary": "StormRadar covers precise location and ad-network sharing, but fails to disclose background location and notifications — both standard for hyperlocal alerting apps."
+  },
+  "com.example.social_a": {
+    "permissions": [
+      {
+        "permission": "android.permission.READ_CONTACTS",
+        "data_access": "the user's contact list",
+        "policy_mention": "contacts you choose to share",
+        "verdict": "covered",
+        "reasoning": "Policy explicitly references contacts the user shares."
+      },
+      {
+        "permission": "android.permission.CAMERA",
+        "data_access": "device camera (photos and video)",
+        "policy_mention": "your camera and microphone input when you make calls",
+        "verdict": "covered",
+        "reasoning": "Policy explicitly states camera input is collected during calls."
+      },
+      {
+        "permission": "android.permission.RECORD_AUDIO",
+        "data_access": "device microphone",
+        "policy_mention": "your camera and microphone input when you make calls",
+        "verdict": "covered",
+        "reasoning": "Policy explicitly states microphone input is collected during calls."
+      },
+      {
+        "permission": "android.permission.READ_PHONE_STATE",
+        "data_access": "phone number, IMEI, network info",
+        "policy_mention": "We may collect your phone number for verification",
+        "verdict": "covered",
+        "reasoning": "Policy explicitly states phone number collection for verification."
+      },
+      {
+        "permission": "android.permission.ACCESS_FINE_LOCATION",
+        "data_access": "precise GPS location",
+        "policy_mention": "Location is collected when you share a location in a chat",
+        "verdict": "covered",
+        "reasoning": "Policy specifies location is collected when shared in a chat."
+      },
+      {
+        "permission": "android.permission.READ_CALENDAR",
+        "data_access": "calendar events",
+        "policy_mention": "We do not collect calendar information",
+        "verdict": "mismatch",
+        "reasoning": "Policy explicitly disclaims calendar collection while the app requests this permission — a direct contradiction."
+      },
+      {
+        "permission": "android.permission.READ_MEDIA_IMAGES",
+        "data_access": "photos and images on device",
+        "policy_mention": "photos and videos you upload",
+        "verdict": "covered",
+        "reasoning": "Policy explicitly references uploaded photos and videos."
+      }
+    ],
+    "summary": "ChatNet's policy covers most permissions clearly. The most concerning finding: the app requests calendar access, but the policy explicitly states it does NOT collect calendar information — a direct contradiction worth investigating."
+  },
+  "com.example.social_b": {
+    "permissions": [
+      {
+        "permission": "android.permission.CAMERA",
+        "data_access": "device camera (photos and video)",
+        "policy_mention": "Some features require access to your camera",
+        "verdict": "covered",
+        "reasoning": "Policy explicitly references camera access."
+      },
+      {
+        "permission": "android.permission.READ_MEDIA_IMAGES",
+        "data_access": "photos and images on device",
+        "policy_mention": "content you post including photos and videos",
+        "verdict": "covered",
+        "reasoning": "Policy references photos in posted content."
+      },
+      {
+        "permission": "android.permission.READ_MEDIA_VIDEO",
+        "data_access": "videos on device",
+        "policy_mention": "content you post including photos and videos",
+        "verdict": "covered",
+        "reasoning": "Policy references videos in posted content."
+      },
+      {
+        "permission": "android.permission.RECORD_AUDIO",
+        "data_access": "device microphone",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy does not disclose microphone access despite the app requesting it."
+      },
+      {
+        "permission": "android.permission.READ_CONTACTS",
+        "data_access": "the user's contact list",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy does not mention contact access."
+      },
+      {
+        "permission": "android.permission.ACCESS_COARSE_LOCATION",
+        "data_access": "approximate (network-based) location",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy does not mention any location data collection."
+      }
+    ],
+    "summary": "FriendFeed discloses photo/video collection clearly, but is silent on microphone, contacts, and location — three sensitive permissions with no policy coverage."
+  },
+  "com.example.game_a": {
+    "permissions": [
+      {
+        "permission": "android.permission.INTERNET",
+        "data_access": "network communication",
+        "policy_mention": "We display advertisements through Google AdMob",
+        "verdict": "unclear",
+        "reasoning": "Network use is implied via ad serving but not directly disclosed for first-party purposes."
+      },
+      {
+        "permission": "android.permission.ACCESS_NETWORK_STATE",
+        "data_access": "(see Android docs)",
+        "policy_mention": "We display advertisements through Google AdMob",
+        "verdict": "unclear",
+        "reasoning": "Network state inspection is implied by ad delivery but not specifically described."
+      },
+      {
+        "permission": "android.permission.WAKE_LOCK",
+        "data_access": "(see Android docs)",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy does not address wake lock usage; this is operationally benign but undisclosed."
+      },
+      {
+        "permission": "com.google.android.gms.permission.AD_ID",
+        "data_access": "(see Android docs)",
+        "policy_mention": "We display advertisements through Google AdMob; please review their privacy policy",
+        "verdict": "covered",
+        "reasoning": "Policy explicitly references AdMob and defers to its policy for ad-related data."
+      },
+      {
+        "permission": "android.permission.WRITE_EXTERNAL_STORAGE",
+        "data_access": "write files on device storage",
+        "policy_mention": "The game uses local storage to save your progress",
+        "verdict": "covered",
+        "reasoning": "Policy explicitly describes local storage use for game progress."
+      },
+      {
+        "permission": "android.permission.RECORD_AUDIO",
+        "data_access": "device microphone",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy explicitly states no personal information is collected, but the app requests microphone access — undisclosed and contradicts the policy's spirit."
+      }
+    ],
+    "summary": "PixelQuest claims it does not collect personal information, yet requests microphone access without explanation — the most concerning finding. Ad and storage usage are appropriately disclosed."
+  },
+  "com.example.game_b": {
+    "permissions": [
+      {
+        "permission": "android.permission.RECORD_AUDIO",
+        "data_access": "device microphone",
+        "policy_mention": "We use your microphone for in-game voice chat",
+        "verdict": "covered",
+        "reasoning": "Policy explicitly states microphone use for voice chat."
+      },
+      {
+        "permission": "android.permission.INTERNET",
+        "data_access": "network communication",
+        "policy_mention": "We collect your IP address and device identifiers for anti-cheat purposes",
+        "verdict": "covered",
+        "reasoning": "Policy describes server-side data collection that requires network."
+      },
+      {
+        "permission": "android.permission.READ_PHONE_STATE",
+        "data_access": "phone number, IMEI, network info",
+        "policy_mention": "We collect your IP address and device identifiers for anti-cheat purposes",
+        "verdict": "covered",
+        "reasoning": "Policy references device identifier collection, which READ_PHONE_STATE provides."
+      },
+      {
+        "permission": "android.permission.CAMERA",
+        "data_access": "device camera (photos and video)",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy does not disclose camera access despite the app requesting it."
+      },
+      {
+        "permission": "android.permission.READ_CONTACTS",
+        "data_access": "the user's contact list",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy does not mention contact list access; social integration mentioned only via share-out flows, not contact reads."
+      }
+    ],
+    "summary": "ArenaWar's policy covers voice chat, anti-cheat, and identifier collection. Camera and contacts permissions are requested but not disclosed — likely overreach beyond the social-share use case."
+  },
+  "com.example.utility_a": {
+    "permissions": [
+      {
+        "permission": "android.permission.CAMERA",
+        "data_access": "device camera (photos and video)",
+        "policy_mention": "The app only uses the camera flash to provide flashlight functionality",
+        "verdict": "covered",
+        "reasoning": "Policy explicitly states camera use is limited to the flash for flashlight functionality."
+      },
+      {
+        "permission": "android.permission.FLASHLIGHT",
+        "data_access": "(see Android docs)",
+        "policy_mention": "The app only uses the camera flash to provide flashlight functionality",
+        "verdict": "covered",
+        "reasoning": "Policy explicitly references flashlight functionality."
+      },
+      {
+        "permission": "android.permission.ACCESS_FINE_LOCATION",
+        "data_access": "precise GPS location",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy explicitly states no personal information is collected, yet the app requests fine location — direct contradiction."
+      },
+      {
+        "permission": "android.permission.READ_CONTACTS",
+        "data_access": "the user's contact list",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy claims no personal information collection, yet the app requests contact access — direct contradiction."
+      },
+      {
+        "permission": "android.permission.INTERNET",
+        "data_access": "network communication",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy explicitly states the app has no servers and all functionality is local; INTERNET permission is unexplained."
+      }
+    ],
+    "summary": "FlashlightPro's policy claims no data collection and no servers, yet the app requests location, contacts, and internet — three permissions in direct conflict with the policy. This is a high-priority audit finding."
+  },
+  "com.example.utility_b": {
+    "permissions": [
+      {
+        "permission": "android.permission.READ_EXTERNAL_STORAGE",
+        "data_access": "files on device storage",
+        "policy_mention": "We require access to storage to read and write your files",
+        "verdict": "covered",
+        "reasoning": "Policy explicitly references storage access for reading files."
+      },
+      {
+        "permission": "android.permission.WRITE_EXTERNAL_STORAGE",
+        "data_access": "write files on device storage",
+        "policy_mention": "We require access to storage to read and write your files",
+        "verdict": "covered",
+        "reasoning": "Policy explicitly references storage access for writing files."
+      },
+      {
+        "permission": "android.permission.READ_MEDIA_IMAGES",
+        "data_access": "photos and images on device",
+        "policy_mention": "We require access to storage to read and write your files",
+        "verdict": "covered",
+        "reasoning": "Policy's general storage access disclosure encompasses media images on Android 13+."
+      },
+      {
+        "permission": "android.permission.INTERNET",
+        "data_access": "network communication",
+        "policy_mention": "We collect anonymous crash reports through Firebase Crashlytics",
+        "verdict": "unclear",
+        "reasoning": "Network use is mentioned only in the context of crash reporting; broader network use is not described."
+      },
+      {
+        "permission": "android.permission.READ_PHONE_STATE",
+        "data_access": "phone number, IMEI, network info",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy does not mention phone state or device identifier collection."
+      }
+    ],
+    "summary": "FileMaster's policy adequately covers its storage-centric core functionality and crash reporting. Phone state access is undisclosed and warrants follow-up."
+  },
+  "com.example.kids_a": {
+    "permissions": [
+      {
+        "permission": "android.permission.INTERNET",
+        "data_access": "network communication",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy explicitly states the app works offline and does not transmit data; INTERNET permission contradicts this."
+      },
+      {
+        "permission": "android.permission.WRITE_EXTERNAL_STORAGE",
+        "data_access": "write files on device storage",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy does not mention storage usage despite the app requesting write access."
+      },
+      {
+        "permission": "android.permission.RECORD_AUDIO",
+        "data_access": "device microphone",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy explicitly states no personal information is collected from children — microphone access is undisclosed and concerning for a COPPA-regulated app."
+      },
+      {
+        "permission": "android.permission.CAMERA",
+        "data_access": "device camera (photos and video)",
+        "policy_mention": "NOT MENTIONED",
+        "verdict": "mismatch",
+        "reasoning": "Policy explicitly states no personal information is collected from children — camera access is undisclosed and concerning for a COPPA-regulated app."
+      }
+    ],
+    "summary": "ABC Learn is a COPPA-regulated kids' app whose policy claims no data collection and offline operation. Yet it requests internet, storage, microphone, and camera — four permissions all in conflict with the stated policy. Highest-priority finding in the eval set."
+  },
+  "com.example.kids_b": {
+    "permissions": [
+      {
+        "permission": "android.permission.RECORD_AUDIO",
+        "data_access": "device microphone",
+        "policy_mention": "we record voice narration so children can listen back to their stories",
+        "verdict": "covered",
+        "reasoning": "Policy explicitly describes voice recording for narration playback."
+      },
+      {
+        "permission": "android.permission.WRITE_EXTERNAL_STORAGE",
+        "data_access": "write files on device storage",
+        "policy_mention": "The app saves recordings to local device storage only",
+        "verdict": "covered",
+        "reasoning": "Policy explicitly describes saving recordings to local storage."
+      },
+      {
+        "permission": "android.permission.READ_MEDIA_AUDIO",
+        "data_access": "audio files on device",
+        "policy_mention": "The app saves recordings to local device storage only",
+        "verdict": "unclear",
+        "reasoning": "Storage of recordings is described, but reading existing on-device audio is not explicitly addressed."
+      },
+      {
+        "permission": "android.permission.ACCESS_FINE_LOCATION",
+        "data_access": "precise GPS location",
+        "policy_mention": "We do not collect location, contacts, or any other personal information",
+        "verdict": "mismatch",
+        "reasoning": "Policy explicitly disclaims location collection, but the app requests fine location — direct contradiction."
+      }
+    ],
+    "summary": "TinyTales discloses its voice recording and local storage flows correctly. The app requests fine location, but the policy explicitly disclaims location collection — a direct contradiction worth flagging."
+  }
+}

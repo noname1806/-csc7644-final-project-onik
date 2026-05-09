@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "labeling_guide": {
+    "covered": "Policy explicitly states collection/use of this data category in unambiguous terms.",
+    "unclear": "Policy mentions the category vaguely, by inference, or only via a generic catch-all (e.g., 'device information').",
+    "mismatch": "Policy does not mention the category at all, OR contradicts the permission's purpose."
+  },
+  "apps": [
+    {
+      "app_id": "com.example.weather_a",
+      "category": "weather",
+      "title": "QuickWeather",
+      "policy_text": "QuickWeather Privacy Policy. We collect your approximate location to provide local weather forecasts. We use Google Analytics to understand app usage and crashes. We share aggregated, non-identifying analytics with Google. We do not sell your information. Contact us at privacy@quickweather.example.",
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_WIFI_STATE",
+        "android.permission.READ_CONTACTS"
+      ],
+      "ground_truth": {
+        "android.permission.ACCESS_COARSE_LOCATION": "covered",
+        "android.permission.ACCESS_FINE_LOCATION": "unclear",
+        "android.permission.INTERNET": "covered",
+        "android.permission.ACCESS_WIFI_STATE": "mismatch",
+        "android.permission.READ_CONTACTS": "mismatch"
+      }
+    },
+    {
+      "app_id": "com.example.weather_b",
+      "category": "weather",
+      "title": "StormRadar",
+      "policy_text": "StormRadar collects your precise GPS location to deliver hyperlocal alerts. We collect device information including model and OS version. We share location data with our advertising partners for ad targeting. We use cookies and similar tracking technologies.",
+      "permissions": [
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_BACKGROUND_LOCATION",
+        "android.permission.POST_NOTIFICATIONS",
+        "android.permission.INTERNET"
+      ],
+      "ground_truth": {
+        "android.permission.ACCESS_FINE_LOCATION": "covered",
+        "android.permission.ACCESS_BACKGROUND_LOCATION": "mismatch",
+        "android.permission.POST_NOTIFICATIONS": "mismatch",
+        "android.permission.INTERNET": "covered"
+      }
+    },
+    {
+      "app_id": "com.example.social_a",
+      "category": "social",
+      "title": "ChatNet",
+      "policy_text": "ChatNet collects messages, contacts you choose to share, photos and videos you upload, and your camera and microphone input when you make calls. We may collect your phone number for verification. We use device identifiers to prevent abuse. Location is collected when you share a location in a chat. We do not collect calendar information.",
+      "permissions": [
+        "android.permission.READ_CONTACTS",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.READ_PHONE_STATE",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.READ_CALENDAR",
+        "android.permission.READ_MEDIA_IMAGES"
+      ],
+      "ground_truth": {
+        "android.permission.READ_CONTACTS": "covered",
+        "android.permission.CAMERA": "covered",
+        "android.permission.RECORD_AUDIO": "covered",
+        "android.permission.READ_PHONE_STATE": "covered",
+        "android.permission.ACCESS_FINE_LOCATION": "covered",
+        "android.permission.READ_CALENDAR": "mismatch",
+        "android.permission.READ_MEDIA_IMAGES": "covered"
+      }
+    },
+    {
+      "app_id": "com.example.social_b",
+      "category": "social",
+      "title": "FriendFeed",
+      "policy_text": "FriendFeed collects information you provide such as your name, email, and profile photo. We collect content you post including photos and videos. We may collect device information and usage data. Some features require access to your camera. We share information with third party advertising networks.",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_MEDIA_IMAGES",
+        "android.permission.READ_MEDIA_VIDEO",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.READ_CONTACTS",
+        "android.permission.ACCESS_COARSE_LOCATION"
+      ],
+      "ground_truth": {
+        "android.permission.CAMERA": "covered",
+        "android.permission.READ_MEDIA_IMAGES": "covered",
+        "android.permission.READ_MEDIA_VIDEO": "covered",
+        "android.permission.RECORD_AUDIO": "mismatch",
+        "android.permission.READ_CONTACTS": "mismatch",
+        "android.permission.ACCESS_COARSE_LOCATION": "mismatch"
+      }
+    },
+    {
+      "app_id": "com.example.game_a",
+      "category": "games",
+      "title": "PixelQuest",
+      "policy_text": "PixelQuest is a kid-friendly puzzle game. We do not collect personal information. The game uses local storage to save your progress. We display advertisements through Google AdMob; please review their privacy policy for details on ad-related data collection.",
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.WAKE_LOCK",
+        "com.google.android.gms.permission.AD_ID",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.RECORD_AUDIO"
+      ],
+      "ground_truth": {
+        "android.permission.INTERNET": "unclear",
+        "android.permission.ACCESS_NETWORK_STATE": "unclear",
+        "android.permission.WAKE_LOCK": "mismatch",
+        "com.google.android.gms.permission.AD_ID": "covered",
+        "android.permission.WRITE_EXTERNAL_STORAGE": "covered",
+        "android.permission.RECORD_AUDIO": "mismatch"
+      }
+    },
+    {
+      "app_id": "com.example.game_b",
+      "category": "games",
+      "title": "ArenaWar",
+      "policy_text": "ArenaWar collects your username, email, and gameplay statistics. We use your microphone for in-game voice chat. We collect your IP address and device identifiers for anti-cheat purposes. We integrate with social platforms; you may share gameplay clips on Facebook or Twitter.",
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.INTERNET",
+        "android.permission.READ_PHONE_STATE",
+        "android.permission.CAMERA",
+        "android.permission.READ_CONTACTS"
+      ],
+      "ground_truth": {
+        "android.permission.RECORD_AUDIO": "covered",
+        "android.permission.INTERNET": "covered",
+        "android.permission.READ_PHONE_STATE": "covered",
+        "android.permission.CAMERA": "mismatch",
+        "android.permission.READ_CONTACTS": "mismatch"
+      }
+    },
+    {
+      "app_id": "com.example.utility_a",
+      "category": "utilities",
+      "title": "FlashlightPro",
+      "policy_text": "FlashlightPro Privacy Policy. We do not collect any personal information. The app only uses the camera flash to provide flashlight functionality. We do not display advertisements. We have no servers; all functionality is local to your device.",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.FLASHLIGHT",
+        "android.permission.ACCESS_FINE_LOCATION",
+        "android.permission.READ_CONTACTS",
+        "android.permission.INTERNET"
+      ],
+      "ground_truth": {
+        "android.permission.CAMERA": "covered",
+        "android.permission.FLASHLIGHT": "covered",
+        "android.permission.ACCESS_FINE_LOCATION": "mismatch",
+        "android.permission.READ_CONTACTS": "mismatch",
+        "android.permission.INTERNET": "mismatch"
+      }
+    },
+    {
+      "app_id": "com.example.utility_b",
+      "category": "utilities",
+      "title": "FileMaster",
+      "policy_text": "FileMaster helps you organize files on your device. We require access to storage to read and write your files. We do not transmit any of your files off your device. We collect anonymous crash reports through Firebase Crashlytics.",
+      "permissions": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.READ_MEDIA_IMAGES",
+        "android.permission.INTERNET",
+        "android.permission.READ_PHONE_STATE"
+      ],
+      "ground_truth": {
+        "android.permission.READ_EXTERNAL_STORAGE": "covered",
+        "android.permission.WRITE_EXTERNAL_STORAGE": "covered",
+        "android.permission.READ_MEDIA_IMAGES": "covered",
+        "android.permission.INTERNET": "unclear",
+        "android.permission.READ_PHONE_STATE": "mismatch"
+      }
+    },
+    {
+      "app_id": "com.example.kids_a",
+      "category": "kids",
+      "title": "ABC Learn",
+      "policy_text": "ABC Learn is designed for children under 13. We comply with COPPA. We do not collect personal information from children. We do not display third-party advertisements. The app works offline; we do not transmit data to our servers.",
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.CAMERA"
+      ],
+      "ground_truth": {
+        "android.permission.INTERNET": "mismatch",
+        "android.permission.WRITE_EXTERNAL_STORAGE": "mismatch",
+        "android.permission.RECORD_AUDIO": "mismatch",
+        "android.permission.CAMERA": "mismatch"
+      }
+    },
+    {
+      "app_id": "com.example.kids_b",
+      "category": "kids",
+      "title": "TinyTales",
+      "policy_text": "TinyTales is a storytelling app for children. With parent consent, we record voice narration so children can listen back to their stories. The app saves recordings to local device storage only. We do not collect location, contacts, or any other personal information. No ads are shown.",
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.READ_MEDIA_AUDIO",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ],
+      "ground_truth": {
+        "android.permission.RECORD_AUDIO": "covered",
+        "android.permission.WRITE_EXTERNAL_STORAGE": "covered",
+        "android.permission.READ_MEDIA_AUDIO": "unclear",
+        "android.permission.ACCESS_FINE_LOCATION": "mismatch"
+      }
+    }
+  ]
+}
